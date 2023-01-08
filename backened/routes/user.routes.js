@@ -22,7 +22,7 @@ userController.post("/signup", (req, res) => {
 
         try {          
             await user.save()
-            res.send("signUp Successful")
+            res.json({msg: "signUp Successful"})
         } catch (err) {
             console.log(err)
             res.send("something went wrong, plz try again")
@@ -42,7 +42,7 @@ userController.post("/login", async (req, res) => {
         }
         if(result) {
             const token = jwt.sign({ userId: user._id}, process.env.JWT_SECRET)
-            res.send({message: "Login successful", token})
+            res.json({message: "Login successful", token})
         } else {
             res.send("Invalid cedetial")
         }
