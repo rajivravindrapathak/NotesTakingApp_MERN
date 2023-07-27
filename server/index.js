@@ -6,9 +6,11 @@ const {notesController} = require("./routes/notes.routes")
 
 const { connection } = require("./config/db")
 const { authentication } = require("./middlewares/authentication")
+require('dotenv').config()
+
 
 const app = express()
-const PORT = 8080
+const PORT = process.env.PORT || 8080
 
 app.use(express.json())
 
@@ -18,16 +20,16 @@ app.get("/", (req, res) => {
 
 app.use(cors())
 
-app.use("/user", userController)
+app.use("/", userController)
 app.use(authentication)
-app.use("/notes", notesController)
+app.use("/", notesController)
 
-app.listen(PORT, async ()=> {
+app.listen(PORT, async ()=> {    
     try {
         await connection;
         console.log("connected to DB")
     } catch (err) {
-        console.log("Error connected to db")
+        console.log("not connected to db")    
         console.log(err)
     }
     console.log(`listning on PORT ${PORT}`)
