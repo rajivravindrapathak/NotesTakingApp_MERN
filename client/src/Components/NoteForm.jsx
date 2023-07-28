@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const NoteForm = ({ showNoteForm, setShowNoteForm, type='add' }) => {
+const NoteForm = ({ showNoteForm, setShowNoteForm, userId, token }) => {
 
     const navigate = useNavigate()
 
@@ -22,14 +22,19 @@ const NoteForm = ({ showNoteForm, setShowNoteForm, type='add' }) => {
 
     const onFinish = async () => {
         try {
-            let response = null
-            if(type = 'add') {
-                response = await axios.post(`http://localhost:8000/notes`, )
-            }
+            // let response = null
+            // if(type === 'add') {
+               
+            const dataToSend = { formData, userId }
+            const response = await axios.post(`http://localhost:8000/user-notes`, dataToSend)
+            console.log('Response from backend:', response.data);
+            // }
         } catch (error) {
-            console.log(error)
+            console.log('Error:', error.response.data)
         }
     }
+
+    
 
     return ( 
         <>
@@ -45,28 +50,31 @@ const NoteForm = ({ showNoteForm, setShowNoteForm, type='add' }) => {
                     <Form.Item label='heading:' name='heading'>
                         <input 
                             type="text"
+                            name='heading'
                             value={formData.heading} 
                             onChange={handleChange}
 
-                        />
+                        />  
                     </Form.Item>
                     <Form.Item label='note:' name='note'>
                         <input 
                             type="text" 
+                            name='note'
                             value={formData.note} 
                             onChange={handleChange}
                         />
                     </Form.Item>
                     <Form.Item label='tag:' name='tag'>
                         <input 
-                            type="text" 
+                            type="text"
+                            name='tag'
                             value={formData.tag} 
                             onChange={handleChange}
                         />
                     </Form.Item>
                     <div>
                         <Form.Item>
-                            <button htmltype="submit">save</button>
+                            <Button htmlType="submit" type="primary">save</Button>
                         </Form.Item>
                     </div>
                 </Form>

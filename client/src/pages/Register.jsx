@@ -9,27 +9,27 @@ const Register = () => {
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-        age: ''
-      });
+      email: '',
+      password: '',
+      age: ''
+    });
   
-      const handleChange = (e) => {
-        setFormData({
-          ...formData,
-          [e.target.name]: e.target.value
-        });
-      };    
+    const handleChange = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    };    
 
-      const handleRegister = async (formData) => {
-        try {
-          const response = await axios.post('http://localhost:8000/signup', formData);
-          console.log('Sign-up successful:', response.data);
-          navigate('/login')
-        } catch (error) {
-          console.error('Sign-up failed:', error.response.data);
-        }
-      };
+    const handleRegister = async (formData) => {
+      try {
+        const response = await axios.post('http://localhost:8000/signup', formData);
+        console.log('Sign-up successful:', response.data);
+        navigate('/login')
+      } catch (error) {
+        console.error('Sign-up failed:', error.response.data);
+      }
+    };
 
     const onFinish = (e) => {
       handleRegister(formData);

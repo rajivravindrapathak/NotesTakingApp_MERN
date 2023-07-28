@@ -23,20 +23,22 @@ const Login = () => {
         try {
           const response = await axios.post('http://localhost:8000/login', formData);
           console.log('Login successful:', response.data);
-          const { token } = response.data;
+          const { userId, token } = response.data;
 
           // Store the token in local storage (you can use session storage as well)
+          localStorage.setItem('userId', userId);
           localStorage.setItem('token', token);
+          
           navigate('/notes')
           // You can handle successful sign-up, show a success message, or redirect to another page.
         } catch (error) {
-            navigate('/signup')
-          console.error('Login failed:', error.response.data);
+            navigate('/register')
+            console.error('Login failed:', error.response.data);
           // You can handle sign-up errors, display an error message, or take appropriate actions.
         }
       };
 
-    const onFinish = (e) => {
+    const onFinish = () => {
         handleLogin(formData);
     }
 
