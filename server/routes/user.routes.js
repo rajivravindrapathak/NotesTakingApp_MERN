@@ -41,6 +41,7 @@ userController.post("/signup", async (req, res) => {
 
 // login api 
 userController.post("/login", async (req, res) => {
+    debugger
     const { email, password } = req.body
    
     const user = await UserModel.findOne({email})

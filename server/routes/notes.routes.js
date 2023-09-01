@@ -4,13 +4,21 @@ const jwt = require("jsonwebtoken")
 require("dotenv").config()
 
 const {NoteModel} = require("../models/Note.model") 
+// const { authentication } = require("../middlewares/authentication")
 
 const notesController = Router()
 
-// note api for getting data
-notesController.get("/notes", async (req, res) => {
+// note api for getting data 
+notesController.get("/getuser-notes", async (req, res) => {
+    debugger;  
     const getnote = await NoteModel.find({ userId : req.body.userId })
-    res.status(200).send({ msg: 'notes get successfully', getnote })
+    try {
+        // const getnote = await NoteModel.find()
+        return res.status(200).send({ msg: 'notes get successfully', data: getnote })  
+        
+    } catch (error) {
+        res.status(404).send({ msg: 'error', error})
+    }
 })
 
 // note api for posting data
@@ -19,7 +27,7 @@ notesController.post("/user-notes", async (req, res) => {
         heading, 
         note, 
         tag, 
-        userId
+        userId   
     } = req.body;
     const newNote = new NoteModel({
         heading,
@@ -57,5 +65,5 @@ notesController.patch("/notes/:noteId", async (req, res) => {
         res.send({ msg: "note couldn't updated"})
     }
 })
-  
+
 module.exports = { notesController }

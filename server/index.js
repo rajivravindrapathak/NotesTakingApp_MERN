@@ -10,9 +10,10 @@ require('dotenv').config()
 
 
 const app = express()
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080   
 
-app.use(express.json())   
+app.use(express.json())  
+app.use(cors());    
 
 app.get("/", (req, res) => {
     res.send("home page")
@@ -22,7 +23,7 @@ app.use(cors())
 
 app.use("/", userController)
 app.use(authentication)
-app.use("/", notesController)
+app.use("/", notesController)   
 
 app.listen(PORT, async ()=> {    
     try {
