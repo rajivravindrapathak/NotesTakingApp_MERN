@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Notes from "../pages/Notes";
+import Logout from "../pages/Logout";
 
 const AllRoutes = () => {
     return ( 
@@ -16,7 +17,7 @@ const AllRoutes = () => {
                 <Route path='/register' element={<Register />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/notes' element={<Notes />} />
-                <Route />
+                <Route path='/logout' element={ <Logout />} />
             </Routes>
             <FooterCom />
         </div>

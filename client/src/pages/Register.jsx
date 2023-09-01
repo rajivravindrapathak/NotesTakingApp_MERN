@@ -35,10 +35,9 @@ const Register = () => {
       handleRegister(formData);
     }
 
-
     return (
-         <>
-         <Layout>
+      <>
+        <Layout>
           <Row className="modal-mainDiv">               
             <Col className="model-firstDiv"></Col>
             <Col className={`model-secDiv`}  // ${loading ? "blur" : ""}
@@ -93,7 +92,7 @@ const Register = () => {
           </Row>
         </Layout>
         {/* {loading && <Spin className="loader" size="large" />} */}
-       </>
+      </>
     )
 }
 

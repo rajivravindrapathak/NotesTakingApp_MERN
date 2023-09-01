@@ -3,38 +3,46 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const NoteForm = ({ showNoteForm, setShowNoteForm, userId, token }) => {
+const NoteForm = ({ showNoteForm, setShowNoteForm, userId  }) => {
 
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         heading: '',
         note: '',
-        tag: ''
+        tag: '',
+        // userId:userId,
     })
 
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
+        setFormData((pre)=>{ // 
+            return({
+            ...pre,
             [e.target.name]: e.target.value 
-        })
+        })})
     }
 
     const onFinish = async () => {
+        console.log('Form submitted');
         try {
+            // debugger;
             // let response = null
             // if(type === 'add') {
-               
-            const dataToSend = { formData, userId }
-            const response = await axios.post(`http://localhost:8000/user-notes`, dataToSend)
+
+            const dataToSend = { ...formData, userId }
+            const token = localStorage.getItem('token');
+            const response = await axios.post(`http://localhost:8000/user-notes`, dataToSend, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
             console.log('Response from backend:', response.data);
             // }
+            setShowNoteForm(false); 
         } catch (error) {
             console.log('Error:', error.response.data)
         }
     }
-
-    
 
     return ( 
         <>
@@ -51,16 +59,15 @@ const NoteForm = ({ showNoteForm, setShowNoteForm, userId, token }) => {
                         <input 
                             type="text"
                             name='heading'
-                            value={formData.heading} 
+                            value={formData?.heading} 
                             onChange={handleChange}
-
                         />  
                     </Form.Item>
                     <Form.Item label='note:' name='note'>
                         <input 
                             type="text" 
                             name='note'
-                            value={formData.note} 
+                            value={formData?.note} 
                             onChange={handleChange}
                         />
                     </Form.Item>
@@ -82,5 +89,5 @@ const NoteForm = ({ showNoteForm, setShowNoteForm, userId, token }) => {
         </>
      );
 }
- 
+
 export default NoteForm;
