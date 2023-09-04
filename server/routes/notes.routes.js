@@ -16,7 +16,7 @@ notesController.get("/getuser-notes", async (req, res) => {
         // const getnote = await NoteModel.find()
         return res.status(200).send({ msg: 'notes get successfully', data: getnote })  
         
-    } catch (error) {
+    } catch (error) {  
         res.status(404).send({ msg: 'error', error})
     }
 })
@@ -24,18 +24,20 @@ notesController.get("/getuser-notes", async (req, res) => {
 // note api for posting data
 notesController.post("/user-notes", async (req, res) => {
     const {
+        // id,
         heading, 
         note, 
         tag, 
         userId   
     } = req.body;
     const newNote = new NoteModel({
+        // id,
         heading,
         note,
         tag,
         userId
     })
-    try {
+    try {   
         await newNote.save()
         res.status(200).send({ msg: "newNote created", newNote })
         
