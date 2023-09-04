@@ -41,7 +41,7 @@ userController.post("/signup", async (req, res) => {
 
 // login api 
 userController.post("/login", async (req, res) => {
-    debugger
+    // debugger
     const { email, password } = req.body
    
     const user = await UserModel.findOne({email})
@@ -57,6 +57,15 @@ userController.post("/login", async (req, res) => {
             res.status(401).send({ msg: "Invalid crdential" })
         }
     });
+})
+
+// forgot password api using nodemailer
+userController.post("/forgot-password", async (req, res) => {
+    const { email } = req.body
+    const forgotuser = await UserModel.findOne({ email })
+    if(!forgotuser) {
+        return res.status(404).send({ msg: "user not exists"})
+    }
 })
 
 module.exports = { userController }
