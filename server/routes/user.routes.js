@@ -9,7 +9,7 @@ const userController = Router()
 
 // signup api to send user data in database
 userController.post("/signup", async (req, res) => {
-    const { email, password, age } = req.body
+    const { username, email, password } = req.body
 
     const isUser = await UserModel.findOne({ email })
     if(isUser) {
@@ -20,10 +20,10 @@ userController.post("/signup", async (req, res) => {
                 res.send({ msg: "sometning went wrong, plz try again later", err })
             } 
             else {
-                const user = new UserModel({    
+                const user = new UserModel({  
+                    username,  
                     email,
-                    password: hash,
-                    age
+                    password: hash
                 })
                 try {          
                     await user.save()
