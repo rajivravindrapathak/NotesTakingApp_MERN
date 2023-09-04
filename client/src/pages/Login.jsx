@@ -23,7 +23,7 @@ const Login = () => {
     // debugger
     try {
       const response = await axios.post(
-        "http://localhost:8000/login",
+        "https://notes-taking-app-mern.vercel.app/login",
         formData
       );
       console.log("Login successful:", response.data);
@@ -91,9 +91,11 @@ const Login = () => {
                   <Button htmlType="submit" type="primary">
                     Login
                   </Button>
-                  <Button style={{ marginLeft: "2%"}} type="primary">
-                    Forgot password
-                  </Button>
+                  <Link to='/forgot-password'>
+                    <Button style={{ marginLeft: "2%"}} type="primary">
+                      Forgot password
+                    </Button>
+                  </Link>
                 </Form.Item>
               </div>
             </Form>

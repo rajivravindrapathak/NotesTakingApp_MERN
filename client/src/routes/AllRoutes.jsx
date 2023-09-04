@@ -7,6 +7,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Notes from "../pages/Notes";
 import Logout from "../pages/Logout";
+import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 
 const AllRoutes = () => {
     return ( 
@@ -18,6 +19,7 @@ const AllRoutes = () => {
                 <Route path='/login' element={<Login />} />
                 <Route path='/notes' element={<Notes />} />
                 <Route path='/logout' element={ <Logout />} />
+                <Route path='/forgot-password' element={ <ForgotPasswordPage /> } />
             </Routes>
             <FooterCom />
         </div>

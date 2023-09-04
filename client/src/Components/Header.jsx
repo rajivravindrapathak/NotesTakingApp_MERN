@@ -7,13 +7,13 @@ const { Header } = Layout;
 const HeaderCom = () => {
   return (
     <Header
-      style={{
-        alignItems: "center",
-        display: "flex",
-        position: "sticky",
-        top: "0",
-        zIndex: "1",
-      }}
+      // style={{
+      //   alignItems: "center",
+      //   display: "flex",
+      //   position: "sticky",
+      //   top: "0",
+      //   zIndex: "1",
+      // }}
     >
       <Row gutter={[16, 16]} style={{ justifyContent: "space-evenly" }}>
         <Col

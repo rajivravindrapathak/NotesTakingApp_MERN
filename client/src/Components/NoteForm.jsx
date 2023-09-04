@@ -31,7 +31,7 @@ const NoteForm = ({ showNoteForm, setShowNoteForm, userId  }) => {
 
             const dataToSend = { ...formData, userId }
             const token = localStorage.getItem('token');
-            const response = await axios.post(`http://localhost:8000/user-notes`, dataToSend, {
+            const response = await axios.post(`https://notes-taking-app-mern.vercel.app/user-notes`, dataToSend, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

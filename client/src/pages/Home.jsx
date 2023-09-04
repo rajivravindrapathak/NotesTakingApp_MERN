@@ -6,40 +6,56 @@ const Home = () => {
 
     const handleBookData = [
         {
-            name: "Sardar Bhagat Singh Autobiography",
+            bookname: "Srimad Bhagavad Gita",
+            writer: "Maharishi Veda Vyasa"
         },
         {
-            name: "A Tragedy of divide India",
+            bookname: "Without Fear: The Life & Trial of Bhagat Singh.",
+            writer: "Kuldip Nayar"
         },
         {
-            name: "A Tragedy of divide India",
+            bookname: "Veer Savarkar: Echoes from a Forgotten Past",
+            writer: "Vikram Sampath"
         },
         {
-            name: "A Tragedy of divide India",
+            bookname: "The Great Tragedy of India's Partition ",
+            writer: "S.S. Sharma"
         },
         {
-            name: "A Tragedy of divide India",
+            bookname: "Syama Prasad Mookerjee: A Life: Life and Times",
+            writer: "Tathagata Roy"
+        },
+        {
+            bookname: "Pt din dyal updhayay",
+            writer: "Seema mishra"
+        },
+        {
+            bookname: "Syama Prasad Mookerjee: A Life: Life and Times",
+            writer: "Tathagata Roy"
+        },
+        {
+            bookname: "Syama Prasad Mookerjee: A Life: Life and Times",
+            writer: "Tathagata Roy"
+        },
+        {
+            bookname: "Syama Prasad Mookerjee: A Life: Life and Times",
+            writer: "Tathagata Roy"
+        },
+        {
+            bookname: "Syama Prasad Mookerjee: A Life: Life and Times",
+            writer: "Tathagata Roy"
         }
     ]
 
     return (
         <>
             <Layout className="mainDiv">
-                {/* <Row>
-                    <Col>
-                        <h1>welcome to Notes app</h1>
-                    </Col>
-                    <Col className="subDiv">
-                        <Link to='/register'><Button type="primary">Register</Button></Link>
-                        <Link to='/login'><Button type="primary">Login</Button></Link>
-                    </Col>  
-                </Row> */}
                 <Row>
                     <Col>
-                        <h1>
-                            Some Free Notes Book that affect All indian people life,
-                            Avilable to Read, Click on details button to Read Books Also you create your 
-                            note book and book and publish it.
+                        <h1>                     
+                            "Access free books with valuable insights that have a profound impact on 
+                            the lives of all Indians. Click the 'Details' button to start reading these
+                            books. Additionally, you can create and publish your own notebook or book."
                         </h1>
                     </Col>
                 </Row>
@@ -47,9 +63,35 @@ const Home = () => {
                     {
                         handleBookData && handleBookData.map((item, index) => {
                             return (
-                                <Col>
-
-                                </Col>
+                                <>
+                                    <Col
+                                        xs={24}
+                                        sm={24}
+                                        md={8}
+                                        lg={12}
+                                        xl={12}
+                                    >
+                                       <p>{item.bookname}</p>
+                                    </Col>
+                                    <Col
+                                        xs={24}
+                                        sm={24}
+                                        md={8}
+                                        lg={6}
+                                        xl={6}
+                                    >
+                                        <p>{item.writer}</p>
+                                    </Col>
+                                    <Col
+                                        xs={24}
+                                        sm={24}
+                                        md={8}
+                                        lg={6}
+                                        xl={6}
+                                    >
+                                        <Button htmlType='submit' type='primary'>Details</Button>
+                                    </Col>
+                                </> 
                             )
                         })
                     }

@@ -10,6 +10,7 @@ const Notes = () => {
 
     const [showNoteForm, setShowNoteForm] = useState()
     const [notes, setNotes] = useState([])
+    // const [id, setId] = useState()
     const [userId, setUserId] = useState()
     const navigate = useNavigate()
     const searchInput = useRef(null);
@@ -44,7 +45,7 @@ const Notes = () => {
       // setUserId(storedUserId);   
 
       try {
-          const response = await axios.get("http://localhost:8000/getuser-notes", {
+          const response = await axios.get("https://notes-taking-app-mern.vercel.app/getuser-notes", {
               headers: {
                   Authorization: `Bearer ${token}`,
               },
@@ -218,9 +219,10 @@ const Notes = () => {
             {
               showNoteForm && (
                 <NoteForm 
-                    showNoteForm={true} 
-                    setShowNoteForm={setShowNoteForm} 
-                    userId={userId}
+                  // id={id}
+                  showNoteForm={true} 
+                  setShowNoteForm={setShowNoteForm} 
+                  userId={userId}
                 />
               )
             }

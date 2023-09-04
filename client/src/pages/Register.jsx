@@ -9,9 +9,9 @@ const Register = () => {
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
+      username: '',
       email: '',
       password: '',
-      age: ''
     });
   
     const handleChange = (e) => {
@@ -23,7 +23,7 @@ const Register = () => {
 
     const handleRegister = async (formData) => {
       try {
-        const response = await axios.post('http://localhost:8000/signup', formData);
+        const response = await axios.post('https://notes-taking-app-mern.vercel.app/signup', formData);
         console.log('Sign-up successful:', response.data);
         navigate('/login')
       } catch (error) {
@@ -50,6 +50,15 @@ const Register = () => {
               <h1>Register page</h1>
               <hr />
               <Form className="FormDiv" onFinish={onFinish}>
+                <Form.Item name='username'>
+                  <input 
+                    type="string" 
+                    name='username'
+                    value={formData.username}
+                    placeholder="Enter Your name" 
+                    onChange={handleChange} 
+                  />
+                </Form.Item>
                  <Form.Item name="email">
                   <input 
                     type="email" 
@@ -65,15 +74,6 @@ const Register = () => {
                     name="password"
                     value={formData.password}
                     placeholder="Enter your password" 
-                    onChange={handleChange} 
-                  />
-                </Form.Item>
-                <Form.Item name='age'>
-                  <input 
-                    type="number" 
-                    name='age'
-                    value={formData.username}
-                    placeholder="Enter Your age" 
                     onChange={handleChange} 
                   />
                 </Form.Item>
