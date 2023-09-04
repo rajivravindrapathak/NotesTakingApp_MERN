@@ -19,7 +19,6 @@ app.get("/", (req, res) => {
     res.send("notes home page")
 })
 
-app.use(cors())
 
 app.use("/", userController)
 app.use(authentication)
