@@ -12,7 +12,7 @@ import ForgotPasswordPage from "../pages/ForgotPasswordPage";
 const AllRoutes = () => {
     return ( 
         <div>
-            <HeaderCom />
+            {/* <HeaderCom /> */}
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/register' element={<Register />} />

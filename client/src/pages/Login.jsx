@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Col, Form, Layout, Row, Spin, message } from "antd";
 import axios from "axios";
+import HeaderCom from "../Components/Header";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ const Login = () => {
 
   return (
     <>
+      <HeaderCom />
       <Layout>
         <Row className="modal-mainDiv" gutter={16}>
           <Col className="model-firstDiv"></Col>
@@ -82,11 +84,7 @@ const Login = () => {
                 />
               </Form.Item>
               <div className="btn-div">
-                <Form.Item>
-                  <Link to="/register" style={{ textAlign: "center" }}>
-                    <Button type="primary">click here to register</Button>
-                  </Link>
-                </Form.Item>
+              
                 <Form.Item>
                   <Button htmlType="submit" type="primary">
                     Login
@@ -95,6 +93,14 @@ const Login = () => {
                     <Button style={{ marginLeft: "2%"}} type="primary">
                       Forgot password
                     </Button>
+                  </Link>
+                </Form.Item>
+                <Form.Item>
+                  <Link to="/register" style={{ textAlign: "center" }}>
+                    <Button type="primary">Click here to register</Button>
+                  </Link>
+                  <Link to="/" style={{ textAlign: "center" }}>
+                    <Button type="primary" style={{ marginLeft: "2%"}}>Home</Button>
                   </Link>
                 </Form.Item>
               </div>

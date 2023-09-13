@@ -5,9 +5,10 @@ import { Link, useNavigate } from 'react-router-dom'
 // import Highlighter from "react-highlight-words";
 import NoteForm from '../Components/NoteForm'
 import axios from 'axios'
+import HeaderCom from '../Components/Header';
 
 const Notes = () => {
-
+    // const childref= useRef();
     const [showNoteForm, setShowNoteForm] = useState()
     const [notes, setNotes] = useState([])
     // const [id, setId] = useState()
@@ -33,7 +34,7 @@ const Notes = () => {
     };
 
     const getNotesData = async () => {
-      // debugger;
+      debugger;
       // Check if the user is authenticated and retrieve the user ID from localStorage
       const token = localStorage.getItem('token');
       // const storedUserId = localStorage.getItem('userId');
@@ -204,7 +205,8 @@ const Notes = () => {
 
     return (
         <>
-            <h1>Notes</h1>
+            <HeaderCom />
+            <h1>Notes page</h1>
             <Button
                 onClick={() => setShowNoteForm(true)}
                 type="primary"
@@ -223,6 +225,7 @@ const Notes = () => {
                   showNoteForm={true} 
                   setShowNoteForm={setShowNoteForm} 
                   userId={userId}
+                  getNotesData={getNotesData}
                 />
               )
             }

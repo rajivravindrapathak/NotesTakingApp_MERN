@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const NoteForm = ({ showNoteForm, setShowNoteForm, userId  }) => {
+const NoteForm = ({ showNoteForm, setShowNoteForm, userId, getNotesData  }) => {
 
     const navigate = useNavigate()
 
@@ -23,7 +23,7 @@ const NoteForm = ({ showNoteForm, setShowNoteForm, userId  }) => {
     }
 
     const onFinish = async () => {
-        console.log('Form submitted');
+        // debugger
         try {
             // debugger;
             // let response = null
@@ -37,8 +37,9 @@ const NoteForm = ({ showNoteForm, setShowNoteForm, userId  }) => {
                 },
             })
             console.log('Response from backend:', response.data);
+            setShowNoteForm(false);
+            getNotesData()
             // }
-            setShowNoteForm(false); 
         } catch (error) {
             console.log('Error:', error.response.data)
         }

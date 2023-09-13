@@ -79,12 +79,12 @@ const Register = () => {
                 </Form.Item>
                 <div className="btn-div">
                   <Form.Item>
-                    <Link to='/login' style={{ textAlign: 'center'}} >
-                      <Button type="primary">click here to login</Button>
-                    </Link>
+                    <Button htmlType="submit" type="primary">Register</Button>
                   </Form.Item>
                   <Form.Item>
-                    <Button htmlType="submit" type="primary">Register</Button>
+                    <Link to='/login' style={{ textAlign: 'center'}} >
+                      <Button type="primary">Click here to login</Button>
+                    </Link>
                   </Form.Item>
                 </div>
               </Form>

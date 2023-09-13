@@ -1,6 +1,7 @@
 import { Button, Col, Form, Layout, Row } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import HeaderCom from '../Components/Header'
 
 const Home = () => {
 
@@ -26,10 +27,6 @@ const Home = () => {
             writer: "Tathagata Roy"
         },
         {
-            bookname: "Pt din dyal updhayay",
-            writer: "Seema mishra"
-        },
-        {
             bookname: "Syama Prasad Mookerjee: A Life: Life and Times",
             writer: "Tathagata Roy"
         },
@@ -49,6 +46,7 @@ const Home = () => {
 
     return (
         <>
+            <HeaderCom />
             <Layout className="mainDiv">
                 <Row>
                     <Col>
@@ -95,15 +93,6 @@ const Home = () => {
                             )
                         })
                     }
-                     {/* <p>
-                        Sardar Bhagat Singh Autobiography
-                    </p>
-                    <Button type='primary'>
-                        Details
-                    </Button>
-                    <p>
-                        A Tragedy of divide India
-                    </p>  */}
                 </Row>
                
             </Layout>
